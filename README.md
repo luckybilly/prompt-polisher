@@ -1,5 +1,7 @@
 # Prompt Polisher
 
+[![CI](https://github.com/luckybilly/prompt-polisher/actions/workflows/ci.yml/badge.svg)](https://github.com/luckybilly/prompt-polisher/actions/workflows/ci.yml)
+
 **A `CLAUDE.md` that makes AI understand before it acts.** Every input gets refined and shown to you before execution — catching misinterpretations before they cost you.
 
 English | [简体中文](./zh-CN/README.md)

@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: '**/*.md'
+
+  link-check:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check internal markdown links
+        run: |
+          errors=0
+          while IFS= read -r file; do
+            # Extract markdown links: [text](path.md) or [text](./path.md)
+            grep -oP '\]\(\K[^)]*\.md' "$file" 2>/dev/null | while IFS= read -r link; do
+              # Skip URLs
+              if echo "$link" | grep -q '^http'; then continue; fi
+              # Resolve relative to the file's directory
+              dir=$(dirname "$file")
+              target="$dir/$link"
+              if [ ! -f "$target" ]; then
+                echo "✗ $file → $link (file not found: $target)"
+                errors=$((errors + 1))
+              fi
+            done
+          done < <(find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*')
+          if [ "$errors" -gt 0 ]; then
+            echo "$errors broken link(s) found"
+            exit 1
+          fi
+          echo "✓ All internal links valid"
+
+  sync-check:
+    name: Framework Sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check CLAUDE.md / .mdc / SKILL.md consistency
+        run: |
+          errors=0
+
+          # Check template description is identical
+          template_claude=$(grep -c "direct task instruction" CLAUDE.md)
+          template_mdc=$(grep -c "direct task instruction" .cursor/rules/prompt-polisher.mdc)
+          template_skill=$(grep -c "direct task instruction" skills/prompt-polisher/SKILL.md)
+
+          if [ "$template_claude" -eq 0 ] || [ "$template_mdc" -eq 0 ] || [ "$template_skill" -eq 0 ]; then
+            echo "✗ Template description mismatch across CLAUDE.md / .mdc / SKILL.md"
+            errors=$((errors + 1))
+          fi
+
+          # Check Output field is identical
+          output_claude=$(grep "^Output:" CLAUDE.md)
+          output_mdc=$(grep "^Output:" .cursor/rules/prompt-polisher.mdc)
+          output_skill=$(grep "^Output:" skills/prompt-polisher/SKILL.md)
+
+          if [ "$output_claude" != "$output_mdc" ] || [ "$output_claude" != "$output_skill" ]; then
+            echo "✗ Output field mismatch:"
+            echo "  CLAUDE.md: $output_claude"
+            echo "  .mdc:      $output_mdc"
+            echo "  SKILL.md:  $output_skill"
+            errors=$((errors + 1))
+          fi
+
+          # Check "How this was derived" heading is identical
+          heading_claude=$(grep "### How this was derived" CLAUDE.md)
+          heading_mdc=$(grep "### How this was derived" .cursor/rules/prompt-polisher.mdc)
+          heading_skill=$(grep "### How this was derived" skills/prompt-polisher/SKILL.md)
+
+          if [ "$heading_claude" != "$heading_mdc" ] || [ "$heading_claude" != "$heading_skill" ]; then
+            echo "✗ 'How this was derived' heading mismatch"
+            errors=$((errors + 1))
+          fi
+
+          if [ "$errors" -gt 0 ]; then
+            exit 1
+          fi
+          echo "✓ All 3 framework files are in sync"

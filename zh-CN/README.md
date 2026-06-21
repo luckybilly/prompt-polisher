@@ -1,5 +1,7 @@
 # Prompt Polisher
 
+[![CI](https://github.com/luckybilly/prompt-polisher/actions/workflows/ci.yml/badge.svg)](https://github.com/luckybilly/prompt-polisher/actions/workflows/ci.yml)
+
 **一个让 AI 先理解再动手的 `CLAUDE.md`。** 每次输入都会先被润色并展示给你确认，让误解在第一时间被发现——而不是在 AI 做错之后。
 
 [English](../README.md) | 简体中文
