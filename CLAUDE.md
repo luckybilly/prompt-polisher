@@ -27,6 +27,7 @@ One cognitive action with multiple dimensions — not sequential steps.
 **Ambiguity Detection** — The ONLY trigger to block for confirmation: you genuinely cannot pin down the intent AND the interpretation changes the execution direction. Both must hold. Reasonably confident, or the choice doesn't fork the path → note the assumption and proceed.
 
 Example — "optimize this API":
+
 - Performance (reduce response time) vs. Code quality (refactor) → different actions; confirm only if you genuinely can't tell which — otherwise pick the likeliest, note it, proceed
 - "API" refers to OrderAPI vs. PaymentAPI → same approach regardless → note and proceed
 

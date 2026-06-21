@@ -38,7 +38,7 @@ You see the refined prompt **before** execution starts — not after the damage 
 
 ## How It Works
 
-```
+```text
 Understand → Align → Execute
 ```
 
@@ -58,7 +58,7 @@ Most inputs get polished and executed without interruption — no extra tool or 
 
 **Prompt Polisher shows:**
 
-```
+```markdown
 ## Polished Prompt
 
 Fix the NullPointerException in OrderService.calculateTotal() — locate the
@@ -80,7 +80,7 @@ More examples → [EXAMPLES.md](EXAMPLES.md)
 
 **Option A: Claude Code Plugin (recommended)**
 
-```
+```text
 /plugin marketplace add luckybilly/prompt-polisher
 /plugin install prompt-polisher@prompt-polisher
 ```
@@ -111,7 +111,7 @@ See [CURSOR.md](CURSOR.md) for setup instructions. The same framework applies vi
 
 > **[andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)** sharpens *execution quality*. **Prompt Polisher** sharpens *communication quality*. Use both for best results.
 
-```
+```text
 User input (vague / natural language)
         │
         ▼

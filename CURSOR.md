@@ -22,6 +22,7 @@ This project includes a **Cursor project rule** so the prompt polishing framewor
 ## For contributors
 
 When you change the framework, keep these files in sync:
+
 - [`CLAUDE.md`](CLAUDE.md) — core framework
 - [`.cursor/rules/prompt-polisher.mdc`](.cursor/rules/prompt-polisher.mdc) — Cursor rule
 - [`skills/prompt-polisher/SKILL.md`](skills/prompt-polisher/SKILL.md) — Skill definition

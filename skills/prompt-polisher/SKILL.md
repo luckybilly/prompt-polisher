@@ -4,7 +4,7 @@
 
 On every user input: understand → show the polished prompt → execute. Block for confirmation only when Ambiguity Detection's condition is met; otherwise show, then proceed. Don't act on raw input.
 
-```
+```text
 Understand → Align → Execute
 ```
 
@@ -21,6 +21,7 @@ One cognitive action with multiple dimensions — not sequential steps.
 **Ambiguity Detection** — The ONLY trigger to block for confirmation: you genuinely cannot pin down the intent AND the interpretation changes the execution direction. Both must hold. Reasonably confident, or the choice doesn't fork the path → note the assumption and proceed.
 
 Example — "optimize this API":
+
 - Performance (reduce response time) vs. Code quality (refactor) → different actions; confirm only if you genuinely can't tell which — otherwise pick the likeliest, note it, proceed
 - "API" refers to OrderAPI vs. PaymentAPI → same approach regardless → note and proceed
 
@@ -37,7 +38,7 @@ Two layers, split by audience:
 
 Every field appears only when it has content — omit empty fields entirely. The output naturally adapts to task weight: simple tasks produce shorter output (imperative statement only, or few supporting fields); complex tasks produce fuller output. No grading step needed — this happens automatically when fields are omitted or populated.
 
-```
+```markdown
 ## Polished Prompt
 
 <direct task instruction — rewrite at the level an expert prompt engineer would write for this goal; include what an expert would consider (edge cases, verification, failure modes); use **bold** for key entities and constraints; use markdown formatting (lists, code blocks, sub-sections) when the task is complex enough to benefit from structure>

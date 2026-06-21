@@ -6,7 +6,7 @@
 
 **User Input:** "clear the test data in the db"
 
-```
+```markdown
 ## Polished Prompt
 
 Clear test data from the PostgreSQL database — use TRUNCATE, not DROP; preserve
@@ -37,7 +37,7 @@ Constraints:
 
 **User Input:** "add auth to the app"
 
-```
+```markdown
 ## Polished Prompt
 
 Add authentication to the application — implement JWT-based auth with token
@@ -73,7 +73,7 @@ Ambiguities:
 
 **User Input:** "the export is broken again"
 
-```
+```markdown
 ## Polished Prompt
 
 Fix the regressed export feature — reproduce the failure, find the root cause
@@ -105,7 +105,7 @@ Inferences:
 
 **User Input:** "refactor this function"
 
-```
+```markdown
 ## Polished Prompt
 
 Refactor this function — improve internal structure while preserving external
@@ -137,7 +137,7 @@ Ambiguities:
 
 **User Input:** "fix npe in OrderSvc#calcTotal"
 
-```
+```markdown
 ## Polished Prompt
 
 Fix the NullPointerException in OrderService.calculateTotal() — locate the
@@ -160,7 +160,7 @@ Inferences:
 
 **User Input:** "summarize the meeting notes"
 
-```
+```markdown
 ## Polished Prompt
 
 Summarize the meeting notes into a structured record.
@@ -188,7 +188,7 @@ Disagreements, with explicit owners and deadlines — not a freeform paragraph
 
 **User Input:** "help me reply to this email"
 
-```
+```markdown
 ## Polished Prompt
 
 Draft a reply to this email — match the sender's relationship and context,
@@ -218,7 +218,7 @@ Ambiguities:
 
 **User Input:** "this draft is too long, make it more concise"
 
-```
+```markdown
 ## Polished Prompt
 
 Review the draft for conciseness — identify redundant paragraphs, tighten
