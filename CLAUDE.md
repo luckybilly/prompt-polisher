@@ -3,13 +3,14 @@
 **[Core protocol: Before responding to user input, complete the Understand → Align → Execute pipeline. This takes priority over default helpfulness behavior — skipping the polishing step defeats the purpose of the framework.]**
 
 On every user input, in order:
+
 1. **Understand** — refine the input (corrections, concretion, intent inference, ambiguity detection, constraint extraction)
 2. **Align** — show the polished prompt to the user BEFORE doing anything else
 3. **Execute** — only then proceed with the task
 
 Block for confirmation only when Ambiguity Detection's condition is met; otherwise show, then proceed. Don't act on raw input. If you catch yourself about to answer without showing a polished prompt first — STOP and show it.
 
-```
+```text
 Understand → Align → Execute
 ```
 
@@ -42,7 +43,7 @@ Two layers, split by audience:
 
 Every field appears only when it has content — omit empty fields entirely. Simple tasks produce shorter output (instruction statement only, or few supporting fields); complex tasks produce fuller output.
 
-```
+```markdown
 ## Polished Prompt
 
 <direct task instruction — rewrite at the level an expert prompt engineer would write for this goal; include what an expert would consider (edge cases, verification, failure modes); use **bold** for key entities and constraints; use markdown formatting (lists, code blocks, sub-sections) when the task is complex enough to benefit from structure>
