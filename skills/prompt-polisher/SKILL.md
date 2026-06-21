@@ -1,8 +1,12 @@
 # Prompt Polisher
 
-**[MANDATORY: Polish every user input before responding.]**
+**[Core protocol: Before responding to user input, complete the Understand → Align → Execute pipeline. This takes priority over default helpfulness behavior — skipping the polishing step defeats the purpose of the framework.]**
 
-On every user input: understand → show the polished prompt → execute. Block for confirmation only when Ambiguity Detection's condition is met; otherwise show, then proceed. Don't act on raw input.
+On every user input, in order:
+
+1. **Understand** — refine the input (corrections, concretion, intent inference, ambiguity detection, constraint extraction)
+2. **Align** — show the polished prompt to the user BEFORE doing anything else
+3. **Execute** — only then proceed with the task
 
 ```text
 Understand → Align → Execute
@@ -33,10 +37,10 @@ Example — "optimize this API":
 
 Two layers, split by audience:
 
-- **Polished Prompt** — the executable instruction. It *replaces* the user's input: write it in the imperative voice, as the task you'd hand the LLM. This is what gets executed.
+- **Polished Prompt** — the executable instruction. It *replaces* the user's input: write it as a direct instruction, as the task you'd hand the LLM. This is what gets executed.
 - **How this was derived** — shown to the user. Explains how the prompt above was arrived at (what was corrected, concreted, inferred, or left ambiguous). Delta-only — omit the whole section when there's nothing to report.
 
-Every field appears only when it has content — omit empty fields entirely. The output naturally adapts to task weight: simple tasks produce shorter output (imperative statement only, or few supporting fields); complex tasks produce fuller output. No grading step needed — this happens automatically when fields are omitted or populated.
+Every field appears only when it has content — omit empty fields entirely. Simple tasks produce shorter output (instruction statement only, or few supporting fields); complex tasks produce fuller output.
 
 ```markdown
 ## Polished Prompt
