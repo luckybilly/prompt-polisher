@@ -1,0 +1,11 @@
+{
+  "name": "prompt-polisher",
+  "description": "Prompt polishing framework for AI coding assistants. Refines, corrects, and confirms user input before execution to prevent silent misinterpretation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "qiyi"
+  },
+  "license": "MIT",
+  "keywords": ["prompt-polishing", "prompt-engineering", "correction-completion", "ambiguity-detection", "constraint-extraction", "coding-assistant"],
+  "skills": ["./skills/prompt-polisher"]
+}

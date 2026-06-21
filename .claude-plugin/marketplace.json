@@ -1,0 +1,31 @@
+{
+  "name": "prompt-polisher",
+  "id": "prompt-polisher",
+  "owner": {
+    "name": "qiyi"
+  },
+  "metadata": {
+    "description": "Prompt polishing framework for AI coding assistants — refines, corrects, and confirms user input before execution",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "prompt-polisher",
+      "source": "https://github.com/luckybilly/prompt-polisher",
+      "description": "Prompt polishing framework: Understand, Assess, and Align before execution — correct input, detect ambiguity, surface constraints, show polished prompt before acting",
+      "version": "1.0.0",
+      "author": {
+        "name": "qiyi"
+      },
+      "keywords": [
+        "prompt-polishing",
+        "prompt-engineering",
+        "correction-completion",
+        "ambiguity-detection",
+        "constraint-extraction",
+        "coding-assistant"
+      ],
+      "category": "workflow"
+    }
+  ]
+}
