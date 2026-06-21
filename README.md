@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/luckybilly/prompt-polisher/actions/workflows/ci.yml/badge.svg)](https://github.com/luckybilly/prompt-polisher/actions/workflows/ci.yml)
 
-**A `CLAUDE.md` that makes AI understand before it acts.** Every input gets refined and shown to you before execution — catching misinterpretations before they cost you.
+**Prompt Polisher** is a lightweight AI intent alignment tool that automatically polishes your prompts to expert level — solving the problem of AI misunderstanding your needs, executing blindly, and being too eager to please. No setup required — every AI interaction confirms intent before taking action, preventing wrong outputs and misunderstandings at the source.
 
 English | [简体中文](./zh-CN/README.md)
 
@@ -109,7 +109,10 @@ See [CURSOR.md](CURSOR.md) for setup instructions. The same framework applies vi
 
 ## Complementary to andrej-karpathy-skills
 
-> **[andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)** sharpens *execution quality*. **Prompt Polisher** sharpens *communication quality*. Use both for best results.
+Two tools forming a complete AI collaboration pipeline:
+
+- **Prompt Polisher (upstream)** — Sharpens **communication quality**, solves "what to do" — ensuring intent is accurate
+- **[andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (downstream)** — Sharpens **execution quality**, solves "how to do it" — ensuring high-standard implementation
 
 ```text
 User input (vague / natural language)
@@ -129,19 +132,25 @@ User input (vague / natural language)
 └─────────────────────────────┘
 ```
 
-**The key difference:** With andrej-karpathy-skills alone, the user's control point is at the **end** — you watch the result and judge if it's right. With Prompt Polisher, the control point moves to the **front** — you confirm the intent before any work begins. Together, they form a complete pipeline: intent aligned upfront, execution disciplined throughout.
+**The key difference:** With andrej-karpathy-skills alone, the user's control point is at the **end** — you watch the result and judge if it's right. With Prompt Polisher, the control point moves to the **front** — you confirm the intent before any work begins.
 
-## Design Analysis: Karpathy's Observations → Prompt Polisher's Design
+## When Not to Use
 
-Karpathy's [observations on LLM coding behavior](https://x.com/karpathy/status/2015883857489522876) describe specific failure modes. Each one maps to a deliberate design choice in Prompt Polisher:
+- Trivial unambiguous inputs ("what day is it", simple calculations)
+- Casual chat, no precision required
 
-| Karpathy's Observation | Prompt Polisher's Response |
-|---|---|
-| Models make wrong assumptions without checking | **Understand pipeline** — 5 dimensions of analysis before any action |
-| They don't seek clarifications | **Ambiguity Detection** — blocks for confirmation when intent genuinely forks |
-| They don't surface inconsistencies | **"How this was derived"** — shows the reasoning transparently |
-| They are too sycophantic | **Mandatory Align step** — forces the model to show its understanding, not just agree |
-| Need for a lightweight inline plan mode | **Understand → Align → Execute** — an inline plan mode on every input |
+Prompt Polisher produces almost no extra output in these cases, but won't interfere either.
+
+## FAQ
+
+**No polishing after install?**
+Check if the plugin is active (`/plugin list`) or if CLAUDE.md is in the project root. Restart Claude Code / Cursor and try again.
+
+**Does it slow me down?**
+No. Only ambiguous, high-stakes inputs trigger a confirmation pause. Clear, simple inputs get polished and executed immediately — no extra interaction.
+
+**Does it work with other AI tools?**
+Natively supports Claude Code and Cursor. The CLAUDE.md rules are essentially LLM instructions — any tool that supports system prompts can theoretically use them.
 
 ## License
 
