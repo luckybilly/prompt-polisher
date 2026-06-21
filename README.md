@@ -13,7 +13,7 @@ You say "fix that thing" — the AI confidently changes the wrong thing. You say
 Andrej Karpathy, after weeks of intensive LLM-assisted coding, [summarized the core frustration](https://x.com/karpathy/status/2015883857489522876):
 
 > *"The most common category is that the models make wrong assumptions on your behalf and just run along with them without checking."*
-
+>
 > *"They also don't manage their confusion, they don't seek clarifications, they don't surface inconsistencies, they don't present tradeoffs, they don't push back when they should, and they are still a little too sycophantic."*
 
 There's no checkpoint between "user speaks" and "AI acts." The LLM is eager to please — it will make assumptions rather than ask for clarification.
@@ -78,14 +78,14 @@ More examples → [EXAMPLES.md](EXAMPLES.md)
 
 ## Install
 
-**Option A: Claude Code Plugin (recommended)**
+### Option A: Claude Code Plugin (recommended)
 
 ```text
 /plugin marketplace add luckybilly/prompt-polisher
 /plugin install prompt-polisher@prompt-polisher
 ```
 
-**Option B: CLAUDE.md (per-project)**
+### Option B: CLAUDE.md (per-project)
 
 ```bash
 # New project
@@ -95,7 +95,7 @@ curl -o CLAUDE.md https://raw.githubusercontent.com/luckybilly/prompt-polisher/m
 echo "" >> CLAUDE.md && curl https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/CLAUDE.md >> CLAUDE.md
 ```
 
-**Option C: Cursor**
+### Option C: Cursor
 
 See [CURSOR.md](CURSOR.md) for setup instructions. The same framework applies via a committed [Cursor project rule](.cursor/rules/prompt-polisher.mdc).
 
