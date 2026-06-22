@@ -6,6 +6,8 @@
 
 English | [简体中文](./zh-CN/README.md)
 
+![Prompt Polisher Demo](demo-en.png)
+
 ## The Problem: Why AI Gets It Wrong
 
 When working with AI, these issues come up constantly:
@@ -114,26 +116,41 @@ User input (vague / natural language)
 
 ## Install
 
-### Option A: Claude Code Plugin (recommended)
+### Option A: CLAUDE.md (per-project)
 
-```text
-/plugin marketplace add luckybilly/prompt-polisher
-/plugin install prompt-polisher@prompt-polisher
-```
-
-### Option B: CLAUDE.md (per-project)
+**New project** — no existing CLAUDE.md:
 
 ```bash
-# New project
 curl -o CLAUDE.md https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/CLAUDE.md
+```
 
-# Existing project (append)
+**Existing project** — already has a CLAUDE.md:
+
+```bash
 echo "" >> CLAUDE.md && curl https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/CLAUDE.md >> CLAUDE.md
 ```
 
-### Option C: Cursor
+### Option B: AI-Assisted Install
 
-See [CURSOR.md](CURSOR.md) for setup instructions. The same framework applies via a committed [Cursor project rule](.cursor/rules/prompt-polisher.mdc).
+Paste this prompt into Claude Code in your project — the AI will handle the rest:
+
+```text
+Install Prompt Polisher for this project.
+
+1. Check if CLAUDE.md exists in the project root
+2. If not, fetch https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/CLAUDE.md
+   and save it as CLAUDE.md in the project root
+3. If CLAUDE.md already exists, fetch the URL above and APPEND its full content
+   to the end of the existing file (do NOT overwrite any existing content)
+4. Confirm the installation is complete
+```
+
+### Option C: Manual Copy
+
+1. Open [CLAUDE.md (raw)](https://raw.githubusercontent.com/luckybilly/prompt-polisher/refs/heads/main/CLAUDE.md), select all and copy
+2. In your project root:
+   - **New project** — create `CLAUDE.md` and paste
+   - **Existing project** — open your `CLAUDE.md`, add a blank line at the end, then paste
 
 ## How to Know It's Working
 
@@ -161,7 +178,7 @@ Prompt Polisher produces almost no extra output in these cases, but won't interf
 ## FAQ
 
 **No polishing after install?**
-Check if the plugin is active (`/plugin list`) or if CLAUDE.md is in the project root. Restart Claude Code / Cursor and try again.
+Check if CLAUDE.md is in the project root. Restart Claude Code / Cursor and try again.
 
 **Does it slow me down?**
 No. Only ambiguous, high-stakes inputs trigger a confirmation pause. Clear, simple inputs get polished and executed immediately — no extra interaction.

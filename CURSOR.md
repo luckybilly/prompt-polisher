@@ -16,8 +16,8 @@ This project includes a **Cursor project rule** so the prompt polishing framewor
 
 ## Claude Code vs Cursor
 
-- **Claude Code:** Install via the plugin marketplace and [`README.md`](README.md) instructions; the plugin exposes the skill from this repo. Per-project use can also rely on `CLAUDE.md`.
-- **Cursor:** Use the committed `.cursor/rules/` file as described above. Cursor does not read `.claude-plugin/` or `CLAUDE.md` by default.
+- **Claude Code:** Copy [`CLAUDE.md`](CLAUDE.md) into your project root (see [`README.md`](README.md) for install options).
+- **Cursor:** Use the committed `.cursor/rules/` file as described above. Cursor does not read `CLAUDE.md` by default.
 
 ## For contributors
 

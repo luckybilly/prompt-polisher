@@ -6,6 +6,8 @@
 
 [English](../README.md) | 简体中文
 
+![Prompt Polisher 演示](demo-zh-CN.png)
+
 ## 问题：原生 AI 交互的固有缺陷
 
 日常使用 AI 时，我们经常遇到这类问题：
@@ -118,26 +120,39 @@ Prompt Polisher 在每次交互中插入一个强制对齐流程。在 AI 碰任
 
 ## 安装
 
-### 方式 A：Claude Code 插件（推荐）
+### 方式 A：按项目安装 CLAUDE.md
 
-```text
-/plugin marketplace add luckybilly/prompt-polisher
-/plugin install prompt-polisher@prompt-polisher
-```
-
-### 方式 B：按项目安装 CLAUDE.md
+**新项目** — 还没有 CLAUDE.md：
 
 ```bash
-# 新项目
 curl -o CLAUDE.md https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/zh-CN/CLAUDE.md
+```
 
-# 已有项目（追加）
+**已有项目** — 已有 CLAUDE.md，追加到末尾：
+
+```bash
 echo "" >> CLAUDE.md && curl https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/zh-CN/CLAUDE.md >> CLAUDE.md
 ```
 
-### 方式 C：Cursor
+### 方式 B：AI 自动安装
 
-详见 [CURSOR.md](../CURSOR.md)。通过已提交的 [Cursor 项目规则](../.cursor/rules/prompt-polisher.mdc) 即可使用同一套框架。
+把下面这段提示词粘贴到你的项目的 Claude Code 中，AI 会自动完成安装：
+
+```text
+为当前项目安装 Prompt Polisher。
+
+1. 检查项目根目录是否存在 CLAUDE.md 文件
+2. 如果不存在，从 https://raw.githubusercontent.com/luckybilly/prompt-polisher/main/zh-CN/CLAUDE.md 获取内容并保存为项目根目录下的 CLAUDE.md
+3. 如果已存在 CLAUDE.md，从上面的 URL 获取完整内容，追加到现有文件末尾（不要覆盖已有内容）
+4. 完成后告诉我安装已完成
+```
+
+### 方式 C：手动复制
+
+1. 打开 [CLAUDE.md（原始内容）](https://raw.githubusercontent.com/luckybilly/prompt-polisher/refs/heads/main/zh-CN/CLAUDE.md)，全选复制
+2. 在你的项目根目录：
+   - **新项目** — 新建 `CLAUDE.md` 文件，粘贴进去
+   - **已有项目** — 打开你的 `CLAUDE.md`，在末尾加一个空行，然后粘贴
 
 ## 如何知道它在起作用
 
@@ -165,7 +180,7 @@ echo "" >> CLAUDE.md && curl https://raw.githubusercontent.com/luckybilly/prompt
 ## FAQ
 
 **安装后没有润色效果？**
-检查插件是否启用（`/plugin list`）或 CLAUDE.md 是否在项目根目录。重启 Claude Code / Cursor 后再试。
+检查 CLAUDE.md 是否在项目根目录。重启 Claude Code / Cursor 后再试。
 
 **会不会拖慢效率？**
 不会。只有模糊、歧义、高风险需求才会暂停确认；明确简单的指令润色后直接执行，无多余交互。

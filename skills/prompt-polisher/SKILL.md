@@ -8,6 +8,8 @@ On every user input, in order:
 2. **Align** — show the polished prompt to the user BEFORE doing anything else
 3. **Execute** — only then proceed with the task
 
+Block for confirmation only when Ambiguity Detection's condition is met; otherwise show, then proceed. Don't act on raw input. If you catch yourself about to answer without showing a polished prompt first — STOP and show it.
+
 ```text
 Understand → Align → Execute
 ```
