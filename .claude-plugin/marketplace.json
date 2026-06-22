@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "prompt-polisher",
-      "source": "https://github.com/luckybilly/prompt-polisher",
+      "source": "./",
       "description": "Prompt polishing framework: Understand, Assess, and Align before execution — correct input, detect ambiguity, surface constraints, show polished prompt before acting",
       "version": "1.0.0",
       "author": {
